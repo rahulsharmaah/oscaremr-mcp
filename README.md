@@ -15,7 +15,7 @@ https://rahulsharmaah.github.io/oscaremr-mcp/
 ## Key Features
 
 - Local stdio MCP server built with the official Python MCP SDK `FastMCP`.
-- Works with OSCAR EMR and Agentic Clinic-style MariaDB/MySQL databases.
+- Works with OSCAR EMR MariaDB/MySQL databases.
 - Interactive setup wizard that writes local credentials to `.env` and tests the connection.
 - Codex plugin metadata included via `.codex-plugin/plugin.json`.
 - Claude Code helper script that prints the `claude mcp add-json` registration command.
@@ -151,6 +151,14 @@ This repository includes a local Codex plugin manifest:
 ```
 
 Add the project location you cloned on your machine as a local plugin path in Codex.
+
+For a lean local marketplace package that avoids copying development folders into Codex, run:
+
+```powershell
+.\scripts\install_codex_local_plugin.ps1
+```
+
+Then restart Codex or refresh the Plugins page and install Oscar EMR MCP from Local Plugins.
 
 For a direct MCP server registration after installing the package, use the console command:
 

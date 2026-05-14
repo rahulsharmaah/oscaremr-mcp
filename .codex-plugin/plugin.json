@@ -1,34 +1,34 @@
 {
   "name": "oscar-db-mcp",
   "version": "0.1.0",
-  "description": "Local MCP server for guarded access to Agentic Clinic or OSCAR EMR MariaDB databases.",
+  "description": "Local MCP server for guarded access to OSCAR EMR MariaDB/MySQL databases.",
   "author": {
     "name": "Rahul Sharma",
     "email": "rahulsharmaah@users.noreply.github.com",
     "url": "https://github.com/rahulsharmaah"
   },
-  "homepage": "https://github.com/rahulsharmaah/oscaremr-mcp",
+  "homepage": "https://rahulsharmaah.github.io/oscaremr-mcp/",
   "repository": "https://github.com/rahulsharmaah/oscaremr-mcp",
   "license": "MIT",
-  "keywords": ["agentic-clinic", "oscar-emr", "oscar", "mariadb", "mysql", "mcp", "database"],
+  "keywords": ["oscar-emr", "oscar", "mariadb", "mysql", "mcp", "database", "healthcare"],
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Oscar EMR MCP",
-    "shortDescription": "Connect Codex to Agentic Clinic or OSCAR EMR MariaDB.",
-    "longDescription": "A local MCP plugin that exposes guarded tools for Agentic Clinic and OSCAR EMR MariaDB databases, including schema inspection, read-only queries, and confirmed admin SQL.",
+    "shortDescription": "Connect Codex to OSCAR EMR MariaDB/MySQL.",
+    "longDescription": "A local MCP plugin that exposes guarded tools for OSCAR EMR MariaDB/MySQL databases, including schema inspection, structured read-only EMR lookups, read-only SQL, and confirmed admin SQL.",
     "developerName": "Rahul Sharma",
     "category": "Developer Tools",
     "capabilities": ["Interactive", "Database", "MCP"],
-    "websiteURL": "https://github.com/rahulsharmaah/oscaremr-mcp",
-    "privacyPolicyURL": "https://github.com/rahulsharmaah/oscaremr-mcp/security",
+    "websiteURL": "https://rahulsharmaah.github.io/oscaremr-mcp/",
+    "privacyPolicyURL": "https://github.com/rahulsharmaah/oscaremr-mcp/blob/main/SECURITY.md",
     "termsOfServiceURL": "https://github.com/rahulsharmaah/oscaremr-mcp/blob/main/LICENSE",
     "composerIcon": "./assets/oscar-db-mcp-logo.svg",
     "logo": "./assets/oscar-db-mcp-logo.svg",
     "defaultPrompt": [
       "Check Oscar EMR MCP health.",
-      "List OSCAR database tables.",
-      "Describe the demographic table."
+      "Find a patient by name.",
+      "List patient lab metadata."
     ],
     "brandColor": "#2563EB"
   }
