@@ -1,5 +1,7 @@
 # oscaremr-mcp
 
+![OSCAR DB MCP logo](assets/oscar-db-mcp-logo.svg)
+
 `oscaremr-mcp` is a local Model Context Protocol (MCP) server for guarded access to OSCAR EMR MariaDB/MySQL databases. It is designed for healthcare development and support workflows where Codex, Claude Code, or another MCP client needs structured database visibility without hardcoding credentials into source control.
 
 The server runs over stdio, reads connection details from a local ignored `.env`, and exposes tools for health checks, schema inspection, read-only SQL, and explicitly confirmed admin SQL.

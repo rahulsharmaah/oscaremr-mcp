@@ -23,6 +23,8 @@
     "websiteURL": "https://github.com/rahulsharmaah/oscaremr-mcp",
     "privacyPolicyURL": "https://github.com/rahulsharmaah/oscaremr-mcp/security",
     "termsOfServiceURL": "https://github.com/rahulsharmaah/oscaremr-mcp/blob/main/LICENSE",
+    "composerIcon": "./assets/oscar-db-mcp-logo.svg",
+    "logo": "./assets/oscar-db-mcp-logo.svg",
     "defaultPrompt": [
       "Check OSCAR DB health.",
       "List OSCAR database tables.",

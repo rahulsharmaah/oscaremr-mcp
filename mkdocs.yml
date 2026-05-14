@@ -6,6 +6,8 @@ repo_name: rahulsharmaah/oscaremr-mcp
 
 theme:
   name: material
+  logo: assets/oscar-db-mcp-logo.svg
+  favicon: assets/oscar-db-mcp-logo.svg
   palette:
     - scheme: default
       primary: blue
