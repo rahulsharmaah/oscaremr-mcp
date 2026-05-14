@@ -31,6 +31,7 @@ https://rahulsharmaah.github.io/oscaremr-mcp/
 ## MCP Tools
 
 The full tool catalog is documented at [docs/tools.md](docs/tools.md).
+The package layout and contribution boundaries are documented at [docs/architecture.md](docs/architecture.md).
 
 - `health_check`: verifies connection settings and MariaDB reachability without exposing secrets.
 - `list_databases`: lists databases visible to the configured account.

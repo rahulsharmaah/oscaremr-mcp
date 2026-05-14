@@ -29,6 +29,7 @@ People sometimes search for this workflow with phrases like Oscar EMR database M
 - Database and table discovery.
 - Table schema inspection.
 - Guarded read-only SQL execution.
+- Structured read-only EMR tools organized by feature area.
 - Confirmed administrative SQL for intentional maintenance work.
 - Local setup helpers for Codex and Claude Code.
 

@@ -3,6 +3,7 @@ const sidebars = {
     'index',
     'installation',
     'configuration',
+    'architecture',
     {
       type: 'category',
       label: 'MCP Clients',
