@@ -1,6 +1,8 @@
 .env
 .codex/
 .venv/
+node_modules/
+.docusaurus/
 __pycache__/
 *.py[cod]
 .pytest_cache/
@@ -8,6 +10,5 @@ __pycache__/
 .ruff_cache/
 dist/
 build/
-site/
 *.egg-info/
 *_DATABASE_SCHEMA.md

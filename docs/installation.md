@@ -2,25 +2,25 @@
 
 Clone the repository into any location that works for your environment.
 
-=== "Windows PowerShell"
+## Windows PowerShell
 
-    ```powershell
-    git clone https://github.com/rahulsharmaah/oscaremr-mcp.git
-    cd <repository-directory>
-    python -m venv .venv
-    .\.venv\Scripts\Activate.ps1
-    python -m pip install -e ".[dev]"
-    ```
+```powershell
+git clone https://github.com/rahulsharmaah/oscaremr-mcp.git
+cd <repository-directory>
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -e ".[dev]"
+```
 
-=== "macOS / Linux"
+## macOS / Linux
 
-    ```bash
-    git clone https://github.com/rahulsharmaah/oscaremr-mcp.git
-    cd <repository-directory>
-    python3 -m venv .venv
-    source .venv/bin/activate
-    python -m pip install -e ".[dev]"
-    ```
+```bash
+git clone https://github.com/rahulsharmaah/oscaremr-mcp.git
+cd <repository-directory>
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e ".[dev]"
+```
 
 ## Verify the Install
 

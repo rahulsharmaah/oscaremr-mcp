@@ -23,11 +23,12 @@ pytest
 Build the docs locally:
 
 ```powershell
-mkdocs build --strict
+npm install
+npm run build
 ```
 
 Preview the docs locally:
 
 ```powershell
-mkdocs serve
+npm run start
 ```
