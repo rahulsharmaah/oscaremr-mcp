@@ -134,8 +134,8 @@ If this succeeds, configure `.env` in `oscaremr-mcp`:
 OSCAR_MCP_MYSQL_HOST=<oscar-windows-lan-ip>
 OSCAR_MCP_MYSQL_PORT=3306
 OSCAR_MCP_MYSQL_DATABASE=oscar_15
-OSCAR_MCP_MYSQL_USER=readonly_user
-OSCAR_MCP_MYSQL_PASSWORD=change-me
+OSCAR_MCP_MYSQL_USER=<readonly-user>
+OSCAR_MCP_MYSQL_PASSWORD=<password>
 ```
 
 Then test the MCP database client:

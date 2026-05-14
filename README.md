@@ -4,6 +4,12 @@
 
 The server runs over stdio, reads connection details from a local ignored `.env`, and exposes tools for health checks, schema inspection, read-only SQL, and explicitly confirmed admin SQL.
 
+## Documentation
+
+The full installation and usage guide is published with GitHub Pages:
+
+https://rahulsharmaah.github.io/oscaremr-mcp/
+
 ## Key Features
 
 - Local stdio MCP server built with the official Python MCP SDK `FastMCP`.

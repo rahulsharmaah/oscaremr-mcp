@@ -8,5 +8,6 @@ __pycache__/
 .ruff_cache/
 dist/
 build/
+site/
 *.egg-info/
 *_DATABASE_SCHEMA.md

@@ -24,6 +24,10 @@ dependencies = [
 dev = [
     "pytest>=8.0",
 ]
+docs = [
+    "mkdocs>=1.6,<2.0",
+    "mkdocs-material>=9.5,<10.0",
+]
 
 [project.scripts]
 oscar-db-mcp = "oscar_db_mcp.server:main"
