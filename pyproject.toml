@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oscar-db-mcp-server"
+version = "0.1.0"
+description = "Local MCP server for guarded access to Agentic Clinic or OSCAR EMR MariaDB databases."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    { name = "Rahul Sharma", email = "rahulsharmaah@users.noreply.github.com" },
+]
+license = "MIT"
+keywords = ["oscar-emr", "mcp", "mariadb", "mysql", "healthcare"]
+dependencies = [
+    "mcp>=1.12",
+    "pymysql>=1.1,<2.0",
+    "python-dotenv>=1.0,<2.0",
+    "pydantic-settings>=2.0,<3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+
+[project.scripts]
+oscar-db-mcp = "oscar_db_mcp.server:main"
+oscar-db-mcp-configure = "oscar_db_mcp.configure:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

@@ -1,0 +1,33 @@
+{
+  "name": "oscar-db-mcp",
+  "version": "0.1.0",
+  "description": "Local MCP server for guarded access to Agentic Clinic or OSCAR EMR MariaDB databases.",
+  "author": {
+    "name": "Rahul Sharma",
+    "email": "rahulsharmaah@users.noreply.github.com",
+    "url": "https://github.com/rahulsharmaah"
+  },
+  "homepage": "https://github.com/rahulsharmaah/oscaremr-mcp",
+  "repository": "https://github.com/rahulsharmaah/oscaremr-mcp",
+  "license": "MIT",
+  "keywords": ["agentic-clinic", "oscar-emr", "oscar", "mariadb", "mysql", "mcp", "database"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "OSCAR DB MCP",
+    "shortDescription": "Connect Codex to Agentic Clinic or OSCAR EMR MariaDB.",
+    "longDescription": "A local MCP plugin that exposes guarded tools for Agentic Clinic and OSCAR EMR MariaDB databases, including schema inspection, read-only queries, and confirmed admin SQL.",
+    "developerName": "Rahul Sharma",
+    "category": "Developer Tools",
+    "capabilities": ["Interactive", "Database", "MCP"],
+    "websiteURL": "https://github.com/rahulsharmaah/oscaremr-mcp",
+    "privacyPolicyURL": "https://github.com/rahulsharmaah/oscaremr-mcp/security",
+    "termsOfServiceURL": "https://github.com/rahulsharmaah/oscaremr-mcp/blob/main/LICENSE",
+    "defaultPrompt": [
+      "Check OSCAR DB health.",
+      "List OSCAR database tables.",
+      "Describe the demographic table."
+    ],
+    "brandColor": "#2563EB"
+  }
+}
