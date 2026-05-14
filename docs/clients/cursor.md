@@ -40,6 +40,24 @@ The script updates Cursor's global MCP configuration and preserves any existing 
 
 After installing, restart Cursor or reload MCP servers from Cursor Settings > MCP.
 
+## Global Setup On macOS And Linux
+
+The guided installer registers Cursor automatically when the database config exists:
+
+```bash
+./scripts/install_oscar_emr_mcp_unix.sh
+```
+
+You can also update Cursor directly:
+
+```bash
+python scripts/install_cursor_mcp.py \
+  --python-path "$HOME/.local/share/oscaremr-mcp/.venv/bin/python" \
+  --env-file "$HOME/.oscaremr-mcp/.env"
+```
+
+After installing, restart Cursor or reload MCP servers from Cursor Settings > MCP.
+
 ## Add To Cursor Deeplink
 
 If `oscar-db-mcp` is already installed on the computer, Cursor can install the MCP entry from this deeplink:
@@ -69,5 +87,5 @@ You can also add the server manually after installing the package:
 }
 ```
 
-Configure connection values with the Windows desktop setup, `oscar-db-mcp-configure --interactive`, or set the `OSCAR_MCP_*` environment variables in Cursor's MCP configuration.
+Configure connection values with the guided platform setup, `oscar-db-mcp-configure --interactive`, or set the `OSCAR_MCP_*` environment variables in Cursor's MCP configuration.
 

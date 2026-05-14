@@ -2,6 +2,22 @@
 
 Clone the project into any location that works for your environment.
 
+## Guided Setup
+
+On Windows, double-click:
+
+```text
+Install Oscar EMR MCP.cmd
+```
+
+On macOS/Linux, run:
+
+```bash
+./scripts/install_oscar_emr_mcp_unix.sh
+```
+
+The guided setup installs dependencies, opens the database wizard, prepares Codex Desktop, and registers Cursor when a database config exists.
+
 ## Windows PowerShell
 
 ```powershell

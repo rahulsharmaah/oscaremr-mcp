@@ -54,13 +54,23 @@ For routine inspection, use a read-only database account. Use root/admin credent
 
 ## Installation
 
-For Windows users who want the simplest setup, double-click:
+For the simplest setup, use the installer for your platform.
+
+On Windows, double-click:
 
 ```text
 Install Oscar EMR MCP.cmd
 ```
 
-That guided setup creates the local environment, installs dependencies, opens the database configuration wizard, prepares the Codex local plugin package, and registers Cursor when a database config exists.
+On macOS or Linux, run:
+
+```bash
+./scripts/install_oscar_emr_mcp_unix.sh
+```
+
+The guided setup creates a local environment, installs dependencies, opens the database configuration wizard, prepares the Codex local plugin package, and registers Cursor when a database config exists.
+
+Developers can also install from source manually.
 
 ```powershell
 git clone https://github.com/rahulsharmaah/oscaremr-mcp.git
@@ -86,6 +96,12 @@ Use the interactive wizard:
 
 ```powershell
 .\scripts\configure_oscar_mcp.ps1
+```
+
+On macOS/Linux, use:
+
+```bash
+oscar-db-mcp-configure --interactive --env-path "$HOME/.oscaremr-mcp/.env"
 ```
 
 The wizard prompts for:
@@ -168,7 +184,7 @@ For a lean local marketplace package that avoids copying development folders int
 
 Then restart Codex or refresh the Plugins page and install Oscar EMR MCP from Local Plugins.
 
-The all-in-one Windows setup runs this local marketplace step automatically.
+The guided Windows, macOS, and Linux setup runs this local marketplace step automatically.
 
 For a direct MCP server registration after installing the package, use the console command:
 
@@ -213,6 +229,12 @@ To install the server globally for Cursor on Windows, run:
 
 ```powershell
 .\scripts\install_cursor_mcp.ps1
+```
+
+On macOS/Linux, the guided installer runs the Cursor registration automatically. You can also run:
+
+```bash
+python scripts/install_cursor_mcp.py --python-path "$HOME/.local/share/oscaremr-mcp/.venv/bin/python" --env-file "$HOME/.oscaremr-mcp/.env"
 ```
 
 After installing, restart Cursor or reload MCP servers from Cursor Settings > MCP.

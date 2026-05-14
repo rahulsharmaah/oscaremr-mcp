@@ -1,10 +1,10 @@
 # One-Click Install
 
-Oscar EMR MCP can be simple for clinic teams, but the database connection still has to be configured safely. The project supports three installation paths.
+Oscar EMR MCP can be simple for clinic teams, but the database connection still has to be configured safely. The project supports friendly local setup paths for Windows, macOS, Linux, Cursor, and Codex Desktop.
 
-## Windows Desktop Setup
+## Windows Setup
 
-For non-technical Windows users, download or clone the project and double-click:
+Download or clone the project and double-click:
 
 ```text
 Install Oscar EMR MCP.cmd
@@ -13,6 +13,24 @@ Install Oscar EMR MCP.cmd
 The installer:
 
 - creates a local Python environment;
+- installs Oscar EMR MCP dependencies;
+- opens the database connection wizard;
+- prepares the Codex local plugin package;
+- registers the MCP server with Cursor when a database config exists.
+
+Users still need their OSCAR database host, database name, read-only username, and password.
+
+## macOS And Linux Setup
+
+Download or clone the project, open a terminal in the project, and run:
+
+```bash
+./scripts/install_oscar_emr_mcp_unix.sh
+```
+
+The installer:
+
+- creates a local Python environment under the user's data directory;
 - installs Oscar EMR MCP dependencies;
 - opens the database connection wizard;
 - prepares the Codex local plugin package;
@@ -37,7 +55,7 @@ This deeplink installs this MCP configuration:
 }
 ```
 
-Cursor will still need the database connection values to be configured through the Windows desktop setup, `oscar-db-mcp-configure --interactive`, or equivalent environment variables.
+Cursor will still need the database connection values to be configured through the guided setup, `oscar-db-mcp-configure --interactive`, or equivalent environment variables.
 
 ## Codex Desktop
 
@@ -47,7 +65,7 @@ Codex Desktop can use the generated local marketplace package:
 .\scripts\install_codex_local_plugin.ps1
 ```
 
-For non-technical users, the Windows desktop setup above runs this automatically. After setup, restart Codex or refresh the Plugins page, then install Oscar EMR MCP from Local Plugins.
+For non-technical users, the guided platform setup above runs this automatically. After setup, restart Codex or refresh the Plugins page, then install Oscar EMR MCP from Local Plugins.
 
 ## Codex Cloud
 
