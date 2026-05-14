@@ -1,5 +1,5 @@
 const config = {
-  title: 'OSCAR DB MCP',
+  title: 'Oscar EMR MCP',
   tagline: 'Guarded local MCP access for OSCAR EMR and Agentic Clinic MariaDB databases.',
   favicon: 'img/oscar-db-mcp-logo.svg',
 
@@ -35,10 +35,15 @@ const config = {
 
   themeConfig: {
     image: 'img/oscar-db-mcp-logo.svg',
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
+    },
     navbar: {
-      title: 'OSCAR DB MCP',
+      title: 'Oscar EMR MCP',
       logo: {
-        alt: 'OSCAR DB MCP logo',
+        alt: 'Oscar EMR MCP logo',
         src: 'img/oscar-db-mcp-logo.svg',
       },
       items: [
@@ -65,7 +70,7 @@ const config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} OSCAR DB MCP.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Oscar EMR MCP.`,
     },
     prism: {
       additionalLanguages: ['powershell', 'bash', 'json', 'python'],

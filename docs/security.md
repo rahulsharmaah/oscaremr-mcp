@@ -1,6 +1,6 @@
 # Security
 
-OSCAR DB MCP is a local development and support tool. It does not replace organizational access controls, hosted secrets management, database auditing, network controls, or healthcare privacy processes.
+Oscar EMR MCP is a local development and support tool. It does not replace organizational access controls, hosted secrets management, database auditing, network controls, or healthcare privacy processes.
 
 ## Required Practices
 

@@ -29,7 +29,7 @@ def configure_interactive() -> int:
     load_dotenv()
     current = OscarDbSettings()
 
-    print("OSCAR DB MCP connection setup")
+    print("Oscar EMR MCP connection setup")
     print("Enter the MariaDB details. Password input is hidden.")
     print()
 
@@ -71,7 +71,7 @@ def configure_interactive() -> int:
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Configure the OSCAR DB MCP server.")
+    parser = argparse.ArgumentParser(description="Configure the Oscar EMR MCP server.")
     parser.add_argument("--interactive", action="store_true", help="Prompt for connection details.")
     parser.add_argument("--env-path", type=Path, help="Reserved for future custom env locations.")
     args = parser.parse_args(argv)

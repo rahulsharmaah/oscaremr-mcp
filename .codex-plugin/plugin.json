@@ -14,7 +14,7 @@
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "interface": {
-    "displayName": "OSCAR DB MCP",
+    "displayName": "Oscar EMR MCP",
     "shortDescription": "Connect Codex to Agentic Clinic or OSCAR EMR MariaDB.",
     "longDescription": "A local MCP plugin that exposes guarded tools for Agentic Clinic and OSCAR EMR MariaDB databases, including schema inspection, read-only queries, and confirmed admin SQL.",
     "developerName": "Rahul Sharma",
@@ -26,7 +26,7 @@
     "composerIcon": "./assets/oscar-db-mcp-logo.svg",
     "logo": "./assets/oscar-db-mcp-logo.svg",
     "defaultPrompt": [
-      "Check OSCAR DB health.",
+      "Check Oscar EMR MCP health.",
       "List OSCAR database tables.",
       "Describe the demographic table."
     ],

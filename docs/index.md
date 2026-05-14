@@ -1,6 +1,6 @@
-# OSCAR DB MCP
+# Oscar EMR MCP
 
-OSCAR DB MCP is a local Model Context Protocol server for guarded access to Agentic Clinic and OSCAR EMR MariaDB/MySQL databases.
+Oscar EMR MCP is a local Model Context Protocol server for guarded access to Agentic Clinic and OSCAR EMR MariaDB/MySQL databases.
 
 It is designed for development and support workflows where an MCP client needs structured database visibility without embedding credentials in source control.
 
