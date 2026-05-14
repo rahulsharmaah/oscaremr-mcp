@@ -21,6 +21,7 @@ https://rahulsharmaah.github.io/oscaremr-mcp/
 - Claude Code helper script that prints the `claude mcp add-json` registration command.
 - Cursor project and global MCP setup helpers.
 - 50 structured read-only EMR lookup tools for patients, appointments, medications, notes, measurements, documents, labs, consults, billing, providers, and audit logs.
+- Feature-area Python modules that make the codebase easier for contributors to review and extend.
 - Guarded SQL execution:
   - Read-only `query_sql` allows only `SELECT`, `SHOW`, `DESCRIBE`, `DESC`, and `EXPLAIN`.
   - Multi-statement SQL is rejected.
@@ -151,19 +152,20 @@ This repository includes a local Codex plugin manifest:
 
 Add the project location you cloned on your machine as a local plugin path in Codex.
 
-For a direct MCP server registration, adapt this template to the project location on your machine:
+For a direct MCP server registration after installing the package, use the console command:
 
 ```json
 {
   "mcpServers": {
     "oscar-db": {
-      "command": "<repository-location>\\.venv\\Scripts\\python.exe",
-      "args": ["-m", "oscar_db_mcp.server"],
-      "cwd": "<repository-location>"
+      "command": "oscar-db-mcp",
+      "args": []
     }
   }
 }
 ```
+
+Configure connection values with `oscar-db-mcp-configure --interactive`, or provide the `OSCAR_MCP_*` environment variables through your MCP client.
 
 ## Claude Code Usage
 

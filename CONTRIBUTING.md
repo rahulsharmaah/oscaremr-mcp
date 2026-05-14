@@ -45,6 +45,7 @@ Before opening a pull request:
 - Confirm no `.env` or secret files are staged.
 - Confirm no PHI/PII or production data is included.
 - Update `README.md` when user-facing behavior changes.
+- Update `docs/tools.md` and `docs/architecture.md` when adding or moving MCP tools.
 - Add or update tests for SQL guardrails and configuration behavior.
 - Explain any admin/write capability changes clearly in the PR description.
 
@@ -60,6 +61,8 @@ When filing an issue:
 ## Code Style
 
 - Keep code small and explicit.
+- Put EMR read-tool logic in the matching `oscar_db_mcp.emr` feature module.
+- Keep `oscar_db_mcp.server` focused on MCP registration and thin forwarding.
 - Prefer standard library and already-declared dependencies.
 - Avoid broad abstractions unless they remove real duplication.
 - Return structured data from MCP tools where possible.

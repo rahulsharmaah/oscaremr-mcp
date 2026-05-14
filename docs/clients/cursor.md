@@ -36,25 +36,24 @@ To make Oscar EMR MCP available from any Cursor workspace on this machine, run:
 .\scripts\install_cursor_mcp.ps1
 ```
 
-The script updates `~/.cursor/mcp.json` and preserves any existing MCP servers. It computes local paths from the current repository location instead of storing generic machine-specific paths in the docs.
+The script updates Cursor's global MCP configuration and preserves any existing MCP servers. It computes the needed local values during installation instead of hardcoding machine-specific paths in the docs.
 
 After installing, restart Cursor or reload MCP servers from Cursor Settings > MCP.
 
 ## Manual Global Setup
 
-You can also edit `~/.cursor/mcp.json` manually:
+You can also add the server manually after installing the package:
 
 ```json
 {
   "mcpServers": {
     "oscar-emr-mcp": {
       "type": "stdio",
-      "command": "<repository-location>\\.venv\\Scripts\\python.exe",
-      "args": ["-m", "oscar_db_mcp.server"],
-      "envFile": "<repository-location>\\.env"
+      "command": "oscar-db-mcp",
+      "args": []
     }
   }
 }
 ```
 
-Use the Python executable and `.env` file from your own local installation.
+Configure connection values with `oscar-db-mcp-configure --interactive`, or set the `OSCAR_MCP_*` environment variables in Cursor's MCP configuration.

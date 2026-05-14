@@ -25,9 +25,20 @@ Oscar EMR MCP keeps the public MCP entry point small and moves EMR-specific beha
 4. Document the tool in `docs/tools.md`.
 5. Add a focused test for important guardrails, parameters, or result fields.
 
+## Tool Module Map
+
+- Patient lookup and chart navigation belong in `patients.py`.
+- Appointment workflows belong in `scheduling.py`.
+- Allergies, medications, and prescriptions belong in `medications.py`.
+- Measurements and preventions belong in `clinical.py`.
+- Notes, issues, ticklers, and messages belong in `workflow.py`.
+- Documents, eForms, labs, and consults belong in `records.py`.
+- Billing, provider directory, security role metadata, and audit-log helpers belong in `billing.py`.
+
 ## Design Rules
 
 - Keep `server.py` as transport glue, not business logic.
 - Keep feature modules small enough for review by domain.
 - Avoid returning password, PIN, TOTP, document blob, attachment, or raw file-content fields.
 - Prefer read-only tools for routine workflows; keep administrative actions separate and explicit.
+- Keep examples portable and avoid machine-specific paths, hostnames, or personal environment details.

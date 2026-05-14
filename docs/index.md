@@ -31,7 +31,7 @@ People sometimes search for this workflow with phrases like Oscar EMR database M
 - Guarded read-only SQL execution.
 - Structured read-only EMR tools organized by feature area.
 - Confirmed administrative SQL for intentional maintenance work.
-- Local setup helpers for Codex and Claude Code.
+- Local setup helpers for Codex, Claude Code, and Cursor.
 
 ## Safety Model
 
@@ -44,7 +44,7 @@ Administrative SQL is available only through a separate tool that requires expli
 1. Install the Python package in a local virtual environment.
 2. Configure a MariaDB connection with the setup wizard.
 3. Register the MCP server with your client.
-4. Use read-only tools for schema inspection and safe queries.
+4. Use structured read-only tools for EMR workflows, schema inspection, and safe queries.
 
 ## Requirements
 

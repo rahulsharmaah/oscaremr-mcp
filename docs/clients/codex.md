@@ -20,21 +20,20 @@ The plugin points Codex at the MCP server definition in:
 
 ## Direct MCP Registration
 
-If you prefer direct MCP configuration, adapt this template to your environment:
+If you prefer direct MCP configuration after installing the package, use the console command:
 
 ```json
 {
   "mcpServers": {
     "oscar-db": {
-      "command": "<repository-location>\\.venv\\Scripts\\python.exe",
-      "args": ["-m", "oscar_db_mcp.server"],
-      "cwd": "<repository-location>"
+      "command": "oscar-db-mcp",
+      "args": []
     }
   }
 }
 ```
 
-For non-Windows environments, use the Python executable inside the virtual environment for that platform.
+Configure connection values with `oscar-db-mcp-configure --interactive`, or provide the `OSCAR_MCP_*` environment variables through your MCP client.
 
 ## Test the MCP Stream
 
