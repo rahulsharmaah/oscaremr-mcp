@@ -5,6 +5,7 @@ from oscar_db_mcp.db import (
     quote_identifier,
     validate_admin_sql,
     validate_read_only_sql,
+    write_env_file,
 )
 
 
@@ -92,3 +93,20 @@ def test_identifier_quoting_blocks_unsafe_table_names():
     assert quote_identifier("demographic") == "`demographic`"
     with pytest.raises(SqlGuardError):
         quote_identifier("demographic; DROP TABLE provider")
+
+
+def test_write_env_file_creates_parent_directory(tmp_path):
+    env_path = tmp_path / "nested" / ".env"
+
+    written = write_env_file(
+        host="localhost",
+        port=3306,
+        database="oscar_15",
+        user="readonly",
+        password="secret",
+        path=env_path,
+    )
+
+    assert written == env_path
+    assert env_path.exists()
+    assert "OSCAR_MCP_MYSQL_DATABASE=oscar_15" in env_path.read_text(encoding="ascii")

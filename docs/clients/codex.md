@@ -30,6 +30,16 @@ The script creates a Codex local marketplace package with only plugin metadata, 
 
 After running it, restart Codex or refresh the Plugins page, then install Oscar EMR MCP from Local Plugins.
 
+For non-technical Windows users, the all-in-one setup runs this step automatically:
+
+```text
+Install Oscar EMR MCP.cmd
+```
+
+## Codex Cloud
+
+Codex Cloud cannot use this local stdio server directly unless its cloud sandbox can reach the OSCAR database. For one-click cloud use, Oscar EMR MCP needs a hosted or self-hosted HTTPS MCP gateway with authentication, encrypted database secrets, audit logs, and clinic network access.
+
 ## Direct MCP Registration
 
 If you prefer direct MCP configuration after installing the package, use the console command:

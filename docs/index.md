@@ -32,6 +32,7 @@ People sometimes search for this workflow with phrases like Oscar EMR database M
 - Structured read-only EMR tools organized by feature area.
 - Confirmed administrative SQL for intentional maintenance work.
 - Local setup helpers for Codex, Claude Code, and Cursor.
+- A Windows desktop setup launcher and Cursor deeplink for simpler installation.
 
 ## Safety Model
 
@@ -45,6 +46,8 @@ Administrative SQL is available only through a separate tool that requires expli
 2. Configure a MariaDB connection with the setup wizard.
 3. Register the MCP server with your client.
 4. Use structured read-only tools for EMR workflows, schema inspection, and safe queries.
+
+For a guided Windows setup, start with [One-Click Install](one-click-install.md).
 
 ## Requirements
 

@@ -2,6 +2,7 @@ const sidebars = {
   docs: [
     'index',
     'installation',
+    'one-click-install',
     'configuration',
     'architecture',
     {

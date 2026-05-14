@@ -7,7 +7,7 @@ Contributions should preserve the project’s safety-first design.
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
-python -m pip install -e ".[dev,docs]"
+python -m pip install -e ".[dev]"
 pytest
 ```
 

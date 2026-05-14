@@ -25,8 +25,8 @@ def _prompt_int(label: str, default: int) -> int:
         raise SystemExit(f"{label} must be a number.") from exc
 
 
-def configure_interactive() -> int:
-    load_dotenv()
+def configure_interactive(env_path: Path | None = None) -> int:
+    load_dotenv(dotenv_path=env_path)
     current = OscarDbSettings()
 
     print("Oscar EMR MCP connection setup")
@@ -47,6 +47,7 @@ def configure_interactive() -> int:
         database=database,
         user=user,
         password=password,
+        path=env_path,
     )
 
     print()
@@ -73,11 +74,11 @@ def configure_interactive() -> int:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Configure the Oscar EMR MCP server.")
     parser.add_argument("--interactive", action="store_true", help="Prompt for connection details.")
-    parser.add_argument("--env-path", type=Path, help="Reserved for future custom env locations.")
+    parser.add_argument("--env-path", type=Path, help="Write connection settings to this env file.")
     args = parser.parse_args(argv)
 
     if args.interactive:
-        return configure_interactive()
+        return configure_interactive(env_path=args.env_path)
 
     parser.print_help()
     return 2

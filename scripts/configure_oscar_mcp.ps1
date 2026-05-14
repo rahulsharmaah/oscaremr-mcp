@@ -1,5 +1,6 @@
 param(
-    [switch]$SkipInstall
+    [switch]$SkipInstall,
+    [switch]$UserGlobal
 )
 
 $ErrorActionPreference = "Stop"
@@ -19,4 +20,9 @@ if (-not $SkipInstall) {
 
 Write-Host ""
 Write-Host "Starting interactive connection setup..."
-& $python -m oscar_db_mcp.configure --interactive
+if ($UserGlobal) {
+    $globalEnv = Join-Path $HOME ".oscaremr-mcp\.env"
+    & $python -m oscar_db_mcp.configure --interactive --env-path $globalEnv
+} else {
+    & $python -m oscar_db_mcp.configure --interactive
+}

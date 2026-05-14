@@ -1,9 +1,8 @@
 {
   "mcpServers": {
     "oscar-db": {
-      "command": ".\\.venv\\Scripts\\python.exe",
-      "args": ["-m", "oscar_db_mcp.server"],
-      "cwd": "."
+      "command": "oscar-db-mcp",
+      "args": []
     }
   }
 }

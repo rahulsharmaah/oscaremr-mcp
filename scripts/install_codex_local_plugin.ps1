@@ -1,5 +1,7 @@
 param(
-    [string]$MarketplaceName = "oscar-db-mcp-local"
+    [string]$MarketplaceName = "oscar-db-mcp-local",
+    [string]$PythonPath,
+    [string]$ServerCwd
 )
 
 $ErrorActionPreference = "Stop"
@@ -9,7 +11,8 @@ $codexHome = if ($env:CODEX_HOME) { $env:CODEX_HOME } else { Join-Path $env:USER
 $marketplaceRoot = Join-Path $codexHome "local-marketplaces\$MarketplaceName"
 $pluginRoot = Join-Path $marketplaceRoot "plugins\oscar-db-mcp"
 $agentsPlugins = Join-Path $marketplaceRoot ".agents\plugins"
-$venvPython = Join-Path $repoRoot ".venv\Scripts\python.exe"
+$venvPython = if ($PythonPath) { $PythonPath } else { Join-Path $repoRoot ".venv\Scripts\python.exe" }
+$serverCwd = if ($ServerCwd) { $ServerCwd } else { $repoRoot }
 
 if (-not (Test-Path $venvPython)) {
     throw "Python virtual environment was not found. Run: python -m venv .venv; .\.venv\Scripts\python.exe -m pip install -e `".[dev]`""
@@ -51,7 +54,7 @@ $mcpConfig = @{
         "oscar-db" = @{
             command = $venvPython
             args = @("-m", "oscar_db_mcp.server")
-            cwd = $repoRoot
+            cwd = $serverCwd
         }
     }
 }

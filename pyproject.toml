@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "oscar-db-mcp-server"
 version = "0.1.0"
-description = "Local MCP server for guarded access to Agentic Clinic or OSCAR EMR MariaDB databases."
+description = "Local MCP server for guarded access to OSCAR EMR MariaDB/MySQL databases."
 readme = "README.md"
 requires-python = ">=3.11"
 authors = [
@@ -13,6 +13,16 @@ authors = [
 ]
 license = "MIT"
 keywords = ["oscar-emr", "mcp", "mariadb", "mysql", "healthcare"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Database",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
 dependencies = [
     "mcp>=1.12",
     "pymysql>=1.1,<2.0",
@@ -27,6 +37,12 @@ dev = [
 [project.scripts]
 oscar-db-mcp = "oscar_db_mcp.server:main"
 oscar-db-mcp-configure = "oscar_db_mcp.configure:main"
+
+[project.urls]
+Homepage = "https://rahulsharmaah.github.io/oscaremr-mcp/"
+Repository = "https://github.com/rahulsharmaah/oscaremr-mcp"
+Documentation = "https://rahulsharmaah.github.io/oscaremr-mcp/"
+Issues = "https://github.com/rahulsharmaah/oscaremr-mcp/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]

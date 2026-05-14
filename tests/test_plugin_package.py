@@ -1,4 +1,5 @@
 import json
+import subprocess
 from pathlib import Path
 
 
@@ -19,3 +20,27 @@ def test_codex_local_plugin_installer_is_documented():
 
     assert "install_codex_local_plugin.ps1" in readme
     assert "install_codex_local_plugin.ps1" in codex_docs
+
+
+def test_one_click_windows_installer_is_documented():
+    readme = Path("README.md").read_text(encoding="utf-8")
+    one_click_docs = Path("docs/one-click-install.md").read_text(encoding="utf-8")
+
+    assert "Install Oscar EMR MCP.cmd" in readme
+    assert "Install Oscar EMR MCP.cmd" in one_click_docs
+    assert "Codex Cloud" in one_click_docs
+    assert "remote MCP gateway" in one_click_docs
+
+
+def test_cursor_deeplink_generator_outputs_install_link():
+    result = subprocess.run(
+        ["python", "scripts/generate_cursor_deeplink.py"],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    link = result.stdout.strip()
+    assert link.startswith("cursor://anysphere.cursor-deeplink/mcp/install?")
+    assert "name=oscar-emr-mcp" in link
+    assert "config=" in link

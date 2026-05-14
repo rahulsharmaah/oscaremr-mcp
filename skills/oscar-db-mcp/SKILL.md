@@ -1,11 +1,11 @@
 ---
 name: oscar-db-mcp
-description: Use when a user wants Codex to inspect or query an Agentic Clinic or OSCAR EMR MariaDB/MySQL database through the local Oscar EMR MCP server.
+description: Use when a user wants Codex to inspect or query an OSCAR EMR MariaDB/MySQL database through the local Oscar EMR MCP server.
 ---
 
 # Oscar EMR MCP
 
-Use the `oscar-db` MCP server for Agentic Clinic or OSCAR EMR MariaDB access.
+Use the `oscar-db` MCP server for OSCAR EMR MariaDB/MySQL access.
 
 Prefer read-only tools first:
 

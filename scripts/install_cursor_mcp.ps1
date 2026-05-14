@@ -1,8 +1,13 @@
+param(
+    [string]$PythonPath,
+    [string]$EnvFile
+)
+
 $ErrorActionPreference = "Stop"
 
 $repoRoot = Split-Path -Parent $PSScriptRoot
-$python = Join-Path $repoRoot ".venv\Scripts\python.exe"
-$envFile = Join-Path $repoRoot ".env"
+$python = if ($PythonPath) { $PythonPath } else { Join-Path $repoRoot ".venv\Scripts\python.exe" }
+$envFile = if ($EnvFile) { $EnvFile } else { Join-Path $repoRoot ".env" }
 $cursorDir = Join-Path $HOME ".cursor"
 $cursorMcp = Join-Path $cursorDir "mcp.json"
 

@@ -54,6 +54,14 @@ For routine inspection, use a read-only database account. Use root/admin credent
 
 ## Installation
 
+For Windows users who want the simplest setup, double-click:
+
+```text
+Install Oscar EMR MCP.cmd
+```
+
+That guided setup creates the local environment, installs dependencies, opens the database configuration wizard, prepares the Codex local plugin package, and registers Cursor when a database config exists.
+
 ```powershell
 git clone https://github.com/rahulsharmaah/oscaremr-mcp.git
 cd oscaremr-mcp
@@ -160,6 +168,8 @@ For a lean local marketplace package that avoids copying development folders int
 
 Then restart Codex or refresh the Plugins page and install Oscar EMR MCP from Local Plugins.
 
+The all-in-one Windows setup runs this local marketplace step automatically.
+
 For a direct MCP server registration after installing the package, use the console command:
 
 ```json
@@ -207,6 +217,10 @@ To install the server globally for Cursor on Windows, run:
 
 After installing, restart Cursor or reload MCP servers from Cursor Settings > MCP.
 
+If `oscar-db-mcp` is already installed on the computer, Cursor also supports a deeplink install:
+
+[Add Oscar EMR MCP to Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=oscar-emr-mcp&config=eyJ0eXBlIjoic3RkaW8iLCJjb21tYW5kIjoib3NjYXItZGItbWNwIiwiYXJncyI6W10sImVudkZpbGUiOiIke3VzZXJIb21lfSR7L30ub3NjYXJlbXItbWNwJHsvfS5lbnYifQ%3D%3D)
+
 ## Smoke Tests
 
 Run unit tests:
@@ -253,3 +267,4 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening issues or pull requests.
 ## License
 
 MIT. See [LICENSE](LICENSE).
+

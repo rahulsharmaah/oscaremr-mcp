@@ -23,9 +23,17 @@ class SqlGuardError(ValueError):
     """Raised when SQL does not satisfy the MCP server guardrails."""
 
 
+def user_env_file_path() -> Path:
+    return Path.home() / ".oscaremr-mcp" / ".env"
+
+
+def env_file_path() -> Path:
+    return Path(__file__).resolve().parents[2] / ".env"
+
+
 class OscarDbSettings(BaseSettings):
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file=(user_env_file_path(), env_file_path()),
         env_prefix="OSCAR_MCP_",
         extra="ignore",
     )
@@ -53,10 +61,6 @@ class OscarDbSettings(BaseSettings):
         }
 
 
-def env_file_path() -> Path:
-    return Path(__file__).resolve().parents[2] / ".env"
-
-
 def write_env_file(
     *,
     host: str,
@@ -70,6 +74,7 @@ def write_env_file(
     path: Path | None = None,
 ) -> Path:
     selected_path = path or env_file_path()
+    selected_path.parent.mkdir(parents=True, exist_ok=True)
     lines = [
         f"OSCAR_MCP_MYSQL_HOST={host}",
         f"OSCAR_MCP_MYSQL_PORT={int(port)}",
