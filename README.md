@@ -91,6 +91,28 @@ OSCAR_MCP_MYSQL_USER=readonly_user
 OSCAR_MCP_MYSQL_PASSWORD=change-me
 ```
 
+## Expose OSCAR WSL MariaDB
+
+If OSCAR EMR is running inside WSL on another Windows machine, expose MariaDB through the Windows host before configuring this MCP server.
+
+On the OSCAR Windows host, run PowerShell as Administrator:
+
+```powershell
+$wslIp = (wsl -d Ubuntu-22.04 hostname -I).Trim().Split(" ")[0]
+wsl -d Ubuntu-22.04 -u root -- bash -lc "sed -i 's/^\s*bind-address\s*=.*/bind-address = 0.0.0.0/' /etc/mysql/mariadb.conf.d/50-server.cnf && (systemctl restart mariadb || service mariadb restart)"
+netsh interface portproxy delete v4tov4 listenaddress=0.0.0.0 listenport=3306
+netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=3306 connectaddress=$wslIp connectport=3306
+New-NetFirewallRule -DisplayName "Allow OSCAR MariaDB 3306" -Direction Inbound -Protocol TCP -LocalPort 3306 -Action Allow
+```
+
+Then verify from the MCP client machine:
+
+```powershell
+Test-NetConnection <oscar-windows-lan-ip> -Port 3306
+```
+
+For the full setup, refresh, removal, and troubleshooting guide, see [docs/EXPOSE_OSCAR_WSL_MARIADB.md](docs/EXPOSE_OSCAR_WSL_MARIADB.md).
+
 ## Run the MCP Server
 
 ```powershell
@@ -192,6 +214,7 @@ Required operating rules:
 
 ```text
 .codex-plugin/              Codex local plugin metadata
+docs/                       Setup guides for OSCAR EMR and WSL networking
 scripts/                    Setup, Codex, Claude Code, and stream-test helpers
 skills/                     Codex skill guidance for the local plugin
 src/oscar_db_mcp/           MCP server, database client, and setup wizard
