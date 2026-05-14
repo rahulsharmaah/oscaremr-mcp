@@ -4,7 +4,7 @@
 
 `oscaremr-mcp` is a local Model Context Protocol (MCP) server for guarded access to OSCAR EMR MariaDB/MySQL databases. It is designed for healthcare development and support workflows where Codex, Claude Code, or another MCP client needs structured database visibility without hardcoding credentials into source control.
 
-The server runs over stdio, reads connection details from a local ignored `.env`, and exposes tools for health checks, schema inspection, read-only SQL, and explicitly confirmed admin SQL.
+The server runs over stdio, reads connection details from a local ignored `.env`, and exposes tools for health checks, schema inspection, structured EMR lookups, read-only SQL, and explicitly confirmed admin SQL.
 
 ## Documentation
 
@@ -19,6 +19,8 @@ https://rahulsharmaah.github.io/oscaremr-mcp/
 - Interactive setup wizard that writes local credentials to `.env` and tests the connection.
 - Codex plugin metadata included via `.codex-plugin/plugin.json`.
 - Claude Code helper script that prints the `claude mcp add-json` registration command.
+- Cursor project and global MCP setup helpers.
+- 50 structured read-only EMR lookup tools for patients, appointments, medications, notes, measurements, documents, labs, consults, billing, providers, and audit logs.
 - Guarded SQL execution:
   - Read-only `query_sql` allows only `SELECT`, `SHOW`, `DESCRIBE`, `DESC`, and `EXPLAIN`.
   - Multi-statement SQL is rejected.
@@ -28,11 +30,14 @@ https://rahulsharmaah.github.io/oscaremr-mcp/
 
 ## MCP Tools
 
+The full tool catalog is documented at [docs/tools.md](docs/tools.md).
+
 - `health_check`: verifies connection settings and MariaDB reachability without exposing secrets.
 - `list_databases`: lists databases visible to the configured account.
 - `list_tables`: lists tables in the configured database.
 - `describe_table(table_name)`: returns table column metadata.
 - `query_sql(sql, limit=200)`: runs guarded read-only SQL with a bounded result set.
+- Structured EMR tools such as `find_patients`, `get_patient_summary`, `list_patient_medications`, `list_patient_labs`, `search_billing_codes`, and `audit_patient_access_log`.
 - `execute_admin_sql(sql, confirm=true, allow_destructive=false)`: runs confirmed admin SQL with destructive operations blocked by default.
 - `configure_connection(...)`: writes connection settings to `.env` and can immediately test them.
 
@@ -49,7 +54,7 @@ For routine inspection, use a read-only database account. Use root/admin credent
 
 ```powershell
 git clone https://github.com/rahulsharmaah/oscaremr-mcp.git
-cd <repository-directory>
+cd oscaremr-mcp
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -e ".[dev]"
@@ -59,7 +64,7 @@ On macOS/Linux:
 
 ```bash
 git clone https://github.com/rahulsharmaah/oscaremr-mcp.git
-cd <repository-directory>
+cd oscaremr-mcp
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -e ".[dev]"
@@ -143,9 +148,9 @@ This repository includes a local Codex plugin manifest:
 .codex-plugin/plugin.json
 ```
 
-Add the repository location you cloned on your machine as a local plugin path in Codex.
+Add the project location you cloned on your machine as a local plugin path in Codex.
 
-For a direct MCP server registration, adapt this template to the location where you keep the repository:
+For a direct MCP server registration, adapt this template to the project location on your machine:
 
 ```json
 {

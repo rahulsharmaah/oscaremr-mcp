@@ -4,7 +4,7 @@ This repository includes local Codex plugin metadata.
 
 ## Local Plugin
 
-Add the repository location you cloned on your machine as a local plugin path in Codex.
+Add the project location you cloned on your machine as a local plugin path in Codex.
 
 The plugin manifest lives at:
 

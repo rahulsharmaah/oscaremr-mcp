@@ -1,12 +1,12 @@
 # Installation
 
-Clone the repository into any location that works for your environment.
+Clone the project into any location that works for your environment.
 
 ## Windows PowerShell
 
 ```powershell
 git clone https://github.com/rahulsharmaah/oscaremr-mcp.git
-cd <repository-directory>
+cd oscaremr-mcp
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -e ".[dev]"
@@ -16,7 +16,7 @@ python -m pip install -e ".[dev]"
 
 ```bash
 git clone https://github.com/rahulsharmaah/oscaremr-mcp.git
-cd <repository-directory>
+cd oscaremr-mcp
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -e ".[dev]"

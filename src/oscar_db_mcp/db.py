@@ -92,6 +92,22 @@ class QueryResult:
     row_count: int
     limited_to: int | None = None
 
+    def as_dict(self) -> dict[str, Any]:
+        return {
+            "columns": self.columns,
+            "rows": self.rows,
+            "row_count": self.row_count,
+            "limited_to": self.limited_to,
+        }
+
+
+def bounded_limit(limit: int, *, default: int = 100, maximum: int = 1000) -> int:
+    try:
+        selected = int(limit)
+    except (TypeError, ValueError):
+        selected = int(default)
+    return max(1, min(selected, int(maximum)))
+
 
 def quote_identifier(value: str) -> str:
     if not IDENTIFIER_RE.fullmatch(value):
@@ -200,10 +216,31 @@ class OscarDbClient:
 
     def query_sql(self, sql: str, limit: int = 200) -> QueryResult:
         cleaned = validate_read_only_sql(sql)
-        safe_limit = max(1, min(int(limit), 1000))
+        safe_limit = bounded_limit(limit, default=200, maximum=1000)
         with self.connect() as connection:
             with connection.cursor() as cursor:
                 cursor.execute(cleaned)
+                rows = list(cursor.fetchmany(safe_limit))
+                columns = [description[0] for description in cursor.description or []]
+        return QueryResult(
+            columns=columns,
+            rows=rows,
+            row_count=len(rows),
+            limited_to=safe_limit,
+        )
+
+    def fetch_read_only(
+        self,
+        sql: str,
+        params: tuple[Any, ...] | list[Any] | None = None,
+        *,
+        limit: int = 100,
+    ) -> QueryResult:
+        cleaned = validate_read_only_sql(sql)
+        safe_limit = bounded_limit(limit, default=100, maximum=1000)
+        with self.connect() as connection:
+            with connection.cursor() as cursor:
+                cursor.execute(cleaned, tuple(params or ()))
                 rows = list(cursor.fetchmany(safe_limit))
                 columns = [description[0] for description in cursor.description or []]
         return QueryResult(
