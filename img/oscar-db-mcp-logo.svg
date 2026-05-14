@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Oscar EMR MCP logo</title>
+  <desc id="desc">A shield containing a database cylinder and connected nodes.</desc>
+  <defs>
+    <linearGradient id="shield" x1="96" y1="64" x2="416" y2="448" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="0.55" stop-color="#0f766e"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="data" x1="156" y1="142" x2="356" y2="348" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#dbeafe"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#0f172a" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="#f8fafc"/>
+  <path
+    d="M256 52 414 112v124c0 96-58 180-158 224C156 416 98 332 98 236V112L256 52Z"
+    fill="url(#shield)"
+    filter="url(#softShadow)"
+  />
+  <path
+    d="M256 91 378 137v98c0 76-44 143-122 180-78-37-122-104-122-180v-98L256 91Z"
+    fill="none"
+    stroke="#ffffff"
+    stroke-opacity="0.22"
+    stroke-width="10"
+  />
+  <ellipse cx="256" cy="181" rx="92" ry="36" fill="url(#data)"/>
+  <path
+    d="M164 181v106c0 20 41 36 92 36s92-16 92-36V181"
+    fill="none"
+    stroke="#f8fafc"
+    stroke-width="24"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M164 233c0 20 41 36 92 36s92-16 92-36M164 286c0 20 41 36 92 36s92-16 92-36"
+    fill="none"
+    stroke="#93c5fd"
+    stroke-width="12"
+    stroke-linecap="round"
+  />
+  <path
+    d="M190 363h132M256 323v40M190 363l-34 32M322 363l34 32"
+    fill="none"
+    stroke="#5eead4"
+    stroke-width="16"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <circle cx="156" cy="395" r="18" fill="#f8fafc"/>
+  <circle cx="256" cy="363" r="18" fill="#f8fafc"/>
+  <circle cx="356" cy="395" r="18" fill="#f8fafc"/>
+</svg>
