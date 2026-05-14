@@ -175,6 +175,22 @@ claude mcp add-json oscar-db '{...}'
 
 Run the printed command in the same environment where `claude` is available.
 
+## Cursor Usage
+
+This repository includes a project-level Cursor MCP config:
+
+```text
+.cursor/mcp.json
+```
+
+To install the server globally for Cursor on Windows, run:
+
+```powershell
+.\scripts\install_cursor_mcp.ps1
+```
+
+After installing, restart Cursor or reload MCP servers from Cursor Settings > MCP.
+
 ## Smoke Tests
 
 Run unit tests:

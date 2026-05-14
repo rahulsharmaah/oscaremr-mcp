@@ -6,7 +6,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'MCP Clients',
-      items: ['clients/codex', 'clients/claude-code'],
+      items: ['clients/codex', 'clients/claude-code', 'clients/cursor'],
     },
     'tools',
     'EXPOSE_OSCAR_WSL_MARIADB',

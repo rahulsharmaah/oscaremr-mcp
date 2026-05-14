@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "oscar-emr-mcp": {
+      "type": "stdio",
+      "command": "${workspaceFolder}${/}.venv${/}Scripts${/}python.exe",
+      "args": ["-m", "oscar_db_mcp.server"],
+      "envFile": "${workspaceFolder}${/}.env"
+    }
+  }
+}
