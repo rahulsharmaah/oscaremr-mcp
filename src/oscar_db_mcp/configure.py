@@ -33,7 +33,7 @@ def configure_interactive() -> int:
     print("Enter the MariaDB details. Password input is hidden.")
     print()
 
-    host = _prompt("Host", current.mysql_host or "172.16.172.167")
+    host = _prompt("Host", current.mysql_host or "localhost")
     port = _prompt_int("Port", current.mysql_port or 3306)
     database = _prompt("Database", current.mysql_database or "oscar_15")
     user = _prompt("User", current.mysql_user or "root")

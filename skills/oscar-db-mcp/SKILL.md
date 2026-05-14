@@ -20,5 +20,5 @@ Use `execute_admin_sql` only when the user explicitly asks for writes or repair 
 For local setup, run:
 
 ```powershell
-D:\projects\oscar-db-mcp-server\scripts\configure_oscar_mcp.ps1
+.\scripts\configure_oscar_mcp.ps1
 ```

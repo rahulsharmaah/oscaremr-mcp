@@ -30,7 +30,7 @@ class OscarDbSettings(BaseSettings):
         extra="ignore",
     )
 
-    mysql_host: str = Field(default="172.16.172.167")
+    mysql_host: str = Field(default="localhost")
     mysql_port: int = Field(default=3306)
     mysql_database: str = Field(default="oscar_15")
     mysql_user: str = Field(default="")

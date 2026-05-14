@@ -41,7 +41,7 @@ For routine inspection, use a read-only database account. Use root/admin credent
 
 ```powershell
 git clone https://github.com/rahulsharmaah/oscaremr-mcp.git
-cd oscaremr-mcp
+cd <repository-directory>
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -e ".[dev]"
@@ -51,7 +51,7 @@ On macOS/Linux:
 
 ```bash
 git clone https://github.com/rahulsharmaah/oscaremr-mcp.git
-cd oscaremr-mcp
+cd <repository-directory>
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -e ".[dev]"
@@ -84,11 +84,11 @@ Copy-Item .env.example .env
 Example:
 
 ```dotenv
-OSCAR_MCP_MYSQL_HOST=172.16.172.167
+OSCAR_MCP_MYSQL_HOST=<mysql-host>
 OSCAR_MCP_MYSQL_PORT=3306
-OSCAR_MCP_MYSQL_DATABASE=oscar_15
-OSCAR_MCP_MYSQL_USER=readonly_user
-OSCAR_MCP_MYSQL_PASSWORD=change-me
+OSCAR_MCP_MYSQL_DATABASE=<database-name>
+OSCAR_MCP_MYSQL_USER=<readonly-user>
+OSCAR_MCP_MYSQL_PASSWORD=<password>
 ```
 
 ## Expose OSCAR WSL MariaDB
@@ -135,21 +135,17 @@ This repository includes a local Codex plugin manifest:
 .codex-plugin/plugin.json
 ```
 
-Add this repository as a local plugin path in Codex:
+Add the repository location you cloned on your machine as a local plugin path in Codex.
 
-```text
-<path-to-your-clone>
-```
-
-For a direct MCP server registration, use:
+For a direct MCP server registration, adapt this template to the location where you keep the repository:
 
 ```json
 {
   "mcpServers": {
     "oscar-db": {
-      "command": "<path-to-your-clone>\\.venv\\Scripts\\python.exe",
+      "command": "<repository-location>\\.venv\\Scripts\\python.exe",
       "args": ["-m", "oscar_db_mcp.server"],
-      "cwd": "<path-to-your-clone>"
+      "cwd": "<repository-location>"
     }
   }
 }
@@ -209,19 +205,6 @@ Required operating rules:
 - Review every `execute_admin_sql` call before running it.
 - Do not expose this MCP server over an untrusted network.
 - Follow your clinic, organization, and jurisdictional privacy requirements when working with health data.
-
-## Repository Layout
-
-```text
-.codex-plugin/              Codex local plugin metadata
-docs/                       Setup guides for OSCAR EMR and WSL networking
-scripts/                    Setup, Codex, Claude Code, and stream-test helpers
-skills/                     Codex skill guidance for the local plugin
-src/oscar_db_mcp/           MCP server, database client, and setup wizard
-tests/                      SQL guardrail tests
-.env.example                Safe example config with no real credentials
-.mcp.json                   Local MCP server definition
-```
 
 ## Contributing
 
